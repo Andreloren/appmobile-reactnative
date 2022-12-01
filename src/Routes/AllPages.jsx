@@ -15,9 +15,9 @@ export default function AllPages() {
           headerShow: false,
         }}
       >
-        <Stack.Screen name="Start" component={Start} />
-        <Stack.Screen name="AppExplanation" component={AppExplanation} />
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Inicio" component={Start} />
+        <Stack.Screen name="Regras" component={AppExplanation} />
+        <Stack.Screen name="Página Principal" component={Home} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -10,7 +10,7 @@ export default function AppExplanation() {
   const navigation = useNavigation();
 
   function handleNavHome() {
-    navigation.navigate("Home");
+    navigation.navigate("Página Principal");
   }
 
   return (

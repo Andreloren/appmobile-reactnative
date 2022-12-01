@@ -9,7 +9,7 @@ import LifeStatus from "../../Components/Common/LifeStatus";
 export default function Start() {
   const navigation = useNavigation();
   const handleNavAppExplanation = () => {
-    navigation.navigate("AppExplanation");
+    navigation.navigate("Regras");
   };
 
   return (

@@ -8,7 +8,7 @@ export default function CreateHabit({ habitArea, borderColor }) {
 
   return (
     <TouchableOpacity
-      activeOpacity={0.8}
+      activeOpacity={0.9}
       style={[styles.button, { borderColor: borderColor }]}
       onPress={handleCreate}
     >
