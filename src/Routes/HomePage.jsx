@@ -3,12 +3,11 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Start from "../Pages/Start";
 import AppExplanation from "../Pages/AppExplanation";
-import Home from "../Pages/Home";
 import HabitPage from "../Pages/HabitPage";
 
 const Stack = createNativeStackNavigator();
 
-export default function AllPages() {
+export default function HomePage() {
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -16,7 +15,6 @@ export default function AllPages() {
           headerShow: false,
         }}
       >
-        <Stack.Screen name="Inicio" component={Start} />
         <Stack.Screen name="Regras" component={AppExplanation} />
         <Stack.Screen name="Página Principal" component={Home} />
         <Stack.Screen name="Hábitos" component={HabitPage} />
