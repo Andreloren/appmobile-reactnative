@@ -27,6 +27,8 @@ export default function Home({ route }) {
     navigation.navigate("Regras");
   }
 
+  const excludeArea = route.params?.excludeArea;
+
   useEffect(() => {
     HabitsService.findByArea("Mente").then((mind) => {
       setMindHabit(mind[0]);
@@ -41,13 +43,32 @@ export default function Home({ route }) {
       setFunHabit(fun[0]);
     });
 
+    if (excludeArea) {
+      if (excludeArea == "Mente") {
+        setMindHabit(null);
+      }
+      if (excludeArea == "Financeiro") {
+        setMoneyHabit(null);
+      }
+      if (excludeArea == "Corpo") {
+        setBodyHabit(null);
+      }
+      if (excludeArea == "Humor") {
+        setFunHabit(null);
+      }
+    }
+
     ChangeNavigationService.checkShowHome(1)
       .then((showHome) => {
         const formDate = `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`;
         const checkDays =
           new Date(formDate) - new Date(showHome.appStartData) + 1;
 
-        setRobotDaysLife(checkDays.toString().padStart(2, "0"));
+        if (checkDays === 0) {
+          setRobotDaysLife(checkDays.toString().padStart(2, "0"));
+        } else {
+          setRobotDaysLife(parseInt(checkDays / (1000 * 3600 * 24)));
+        }
       })
       .catch((err) => console.log(err));
   }, [route.params]);
@@ -57,7 +78,7 @@ export default function Home({ route }) {
       <ScrollView>
         <View style={{ alignItems: "center" }}>
           <Text style={styles.dailyChecks}>
-            ❤️ {robotDaysLife} {robotDaysLife === 1 ? "dia" : "dias"} - ✔️ 80
+            ❤️ {robotDaysLife} {robotDaysLife === "01" ? "dia" : "dias"} - ✔️ 80
             Checks
           </Text>
 
