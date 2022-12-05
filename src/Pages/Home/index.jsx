@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import HabitsService from "../../Services/HabitsService";
+import CheckService from "../../Services/CheckService";
 
 import { useNavigation } from "@react-navigation/native";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
@@ -72,6 +73,10 @@ export default function Home({ route }) {
       })
       .catch((err) => console.log(err));
   }, [route.params]);
+
+  useEffect(() => {
+    CheckService.removeCheck(mindHabit, moneyHabit, bodyHabit, funHabit);
+  }, [mindHabit, moneyHabit, bodyHabit, funHabit]);
 
   return (
     <View style={styles.container}>
