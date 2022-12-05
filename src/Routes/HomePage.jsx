@@ -2,8 +2,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import AppExplanation from "../Pages/AppExplanation";
-import HabitPage from "../Pages/HabitPage";
 import Home from "../Pages/Home";
+import HabitPage from "../Pages/HabitPage";
+import Start from "../Pages/Start";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,8 +17,9 @@ export default function HomePage() {
         }}
       >
         <Stack.Screen name="Página Principal" component={Home} />
-        <Stack.Screen name="Regras" component={AppExplanation} />
         <Stack.Screen name="Hábitos" component={HabitPage} />
+        <Stack.Screen name="Regras" component={AppExplanation} />
+        <Stack.Screen name="Inicio" component={Start} />
       </Stack.Navigator>
     </NavigationContainer>
   );
